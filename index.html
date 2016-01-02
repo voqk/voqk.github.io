@@ -1,45 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>voqk</title>
+---
+layout: default
+---
 
-    <meta name="viewport" content="width=650">
-    <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; min-height: 14.0px}
+<div class="home">
 
-    a:link {color:#CE2029; text-decoration:none;}
-    a:visited {color:#CE2029; text-decoration:none;}
-    a:hover {text-decoration:underline;}
+  <h1 class="page-heading">Posts</h1>
 
-    pre {
-      font: 13.0px Courier;
-      width: 650px;
-      position: relative;
-      white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
-      white-space: -pre-wrap; /* Opera */
-      white-space: -o-pre-wrap; /* Opera */
-      white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
-      word-wrap: break-word; /* IE 5.5+ */
-    }
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-    span.white {
-      color:white;
-    }
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-    p span.show {display:none;}
-        p:hover span.show {display:inline;}
-        p:hover span.noshow {display:none;}    
-    </style>
-</head>
-<body>
-<pre>
--------------------------
----------------- Voqk ---
--------------------------
--- Welcome --------------
--------------------------
--------------------------
-</pre>
-</body>
-</html>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
